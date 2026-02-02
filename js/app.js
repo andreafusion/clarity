@@ -195,6 +195,61 @@ answerEl.addEventListener("keydown", (e) => {
     goNext();
   }
 });
+// ---------- how-to flip cards ----------
+document.querySelectorAll(".step-card").forEach(card => {
+  card.addEventListener("click", () => {
+    const isFlipped = card.classList.toggle("flipped");
+    card.setAttribute("aria-expanded", isFlipped ? "true" : "false");
+  });
+});
+
+
+// ---------- random tip post-it ----------
+const tips = [
+  "Escribe 3 frases malas a propósito. La cuarta suele salir buena.",
+  "Si te atascas, responde con una lista: 1) miedo, 2) deseo, 3) primer paso.",
+  "La claridad no siempre es una respuesta: a veces es saber qué NO hacer hoy.",
+  "Pon un temporizador de 7 minutos. Si al sonar quieres seguir, sigue. Si no, suelta.",
+  "No busques motivación: busca una versión más pequeña del problema.",
+  "Si te da vergüenza escribirlo, probablemente es importante.",
+  "Cuando dudes, elige lo que te dé paz en el cuerpo, no lo que gane en debate.",
+  "Hoy no necesitas un plan perfecto. Necesitas una dirección amable."
+];
+
+const tipEl = document.querySelector("#home-tip");
+const postitEl = document.querySelector(".postit");
+const btnNewTip = document.querySelector("#btn-new-tip");
+
+let lastTip = null;
+function pickRandomTip(){
+  if(tips.length === 1) return tips[0];
+  let next = null;
+  do{
+    next = tips[Math.floor(Math.random() * tips.length)];
+  } while(next === lastTip);
+  lastTip = next;
+  return next;
+}
+
+function setNewTip(){
+  if(!tipEl) return;
+  tipEl.textContent = pickRandomTip();
+
+  // pequeña animación "pop"
+  if(postitEl){
+    postitEl.classList.remove("pop");
+    // forzar reflow para reiniciar animación
+    void postitEl.offsetWidth;
+    postitEl.classList.add("pop");
+  }
+}
+
+if(btnNewTip){
+  btnNewTip.addEventListener("click", setNewTip);
+}
+
+// tip inicial al cargar
+setNewTip();
 
 // ---------- init ----------
 renderModes();

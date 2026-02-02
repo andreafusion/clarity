@@ -9,18 +9,135 @@
 <body>
   <main class="app">
     <header class="header">
-      <h1 class="logo">Clarity</h1>
+<h1 class="logo">Clarity <span class="sigil">✦</span></h1>
       <p class="tagline">Una pregunta a la vez. Un paso a la vez.</p>
     </header>
 
     <!-- HOME -->
     <section id="screen-home" class="screen active">
-      <h2>¿Qué necesitas ahora?</h2>
-      <div class="card-grid" id="modes-grid">
-        <!-- botones de modos se insertan con JS -->
-      </div>
-      <p class="hint">Tus respuestas se guardan en tu navegador (privado).</p>
-    </section>
+  <!-- Intro / how-to -->
+  <section class="paper-intro" aria-labelledby="howto-title">
+    <div class="intro-header">
+      <h2 id="howto-title">Cómo usar Clarity</h2>
+      <p class="intro-subtitle">
+        Piensa en esto como un cuaderno guiado: una pregunta, una respuesta, una acción pequeña.
+      </p>
+    </div>
+
+    <div class="steps-grid" id="howto-steps">
+      <!-- Step 1 -->
+      <button class="step-card" type="button" aria-expanded="false">
+        <div class="step-inner">
+          <div class="step-front">
+            <div class="step-badge">1</div>
+            <h3>Elige un modo</h3>
+            <p>Selecciona lo que necesitas ahora.</p>
+            <span class="step-hint">Clic para ver más ✶</span>
+          </div>
+          <div class="step-back">
+            <h3>Elige un modo</h3>
+            <p>
+              No busques el modo “perfecto”. Elige el que te dé un poquito de alivio.
+              Si dudas, empieza por <strong>Saturación mental</strong>.
+            </p>
+            <span class="step-hint">Clic para volver</span>
+          </div>
+        </div>
+      </button>
+
+      <!-- Step 2 -->
+      <button class="step-card" type="button" aria-expanded="false">
+        <div class="step-inner">
+          <div class="step-front">
+            <div class="step-badge">2</div>
+            <h3>Responde sin editar</h3>
+            <p>Escribe como si nadie estuviera mirando.</p>
+            <span class="step-hint">Clic para ver más ✶</span>
+          </div>
+          <div class="step-back">
+            <h3>Responde sin editar</h3>
+            <p>
+              Aquí vale el borrador. Frases sueltas, listas, caos bonito.
+              La claridad suele aparecer después de 3 líneas honestas.
+            </p>
+            <span class="step-hint">Clic para volver</span>
+          </div>
+        </div>
+      </button>
+
+      <!-- Step 3 -->
+      <button class="step-card" type="button" aria-expanded="false">
+        <div class="step-inner">
+          <div class="step-front">
+            <div class="step-badge">3</div>
+            <h3>Avanza una por una</h3>
+            <p>Una pregunta, una respiración.</p>
+            <span class="step-hint">Clic para ver más ✶</span>
+          </div>
+          <div class="step-back">
+            <h3>Avanza una por una</h3>
+            <p>
+              Pulsa <strong>Enter</strong> para ir a la siguiente.
+              Usa <strong>Ctrl/⌘ + Enter</strong> para salto de línea.
+              (Súper útil si escribes tipo diario.)
+            </p>
+            <span class="step-hint">Clic para volver</span>
+          </div>
+        </div>
+      </button>
+
+      <!-- Step 4 -->
+      <button class="step-card" type="button" aria-expanded="false">
+        <div class="step-inner">
+          <div class="step-front">
+            <div class="step-badge">4</div>
+            <h3>Quédate con 1 acción</h3>
+            <p>Pequeña, realista, de hoy.</p>
+            <span class="step-hint">Clic para ver más ✶</span>
+          </div>
+          <div class="step-back">
+            <h3>Quédate con 1 acción</h3>
+            <p>
+              Copia tu resultado y conviértelo en un mini compromiso.
+              Si la acción te da pereza, divídela en la mitad. Luego otra vez.
+            </p>
+            <span class="step-hint">Clic para volver</span>
+          </div>
+        </div>
+      </button>
+    </div>
+<!-- Post-it tip aleatorio -->
+<div class="howto-layout">
+  <div class="steps-grid" id="howto-steps">
+    ...
+  </div>
+
+  <aside class="postit" aria-live="polite">
+    <div class="postit-tape"></div>
+    <p class="postit-title">Tip rápido</p>
+    <p class="postit-text" id="home-tip">Cargando tip…</p>
+
+    <button class="postit-btn" type="button" id="btn-new-tip" aria-label="Mostrar otro tip">
+      Otro tip ↻
+    </button>
+  </aside>
+</div>
+
+
+    <div class="intro-foot">
+      <p class="privacy">
+        Tus respuestas se guardan solo en tu navegador (privado). ✿
+      </p>
+    </div>
+  </section>
+
+  <h2 class="modes-title">¿Qué necesitas ahora?</h2>
+
+  <div class="card-grid" id="modes-grid">
+    <!-- botones de modos se insertan con JS -->
+  </div>
+</section>
+
 
     <!-- FLOW -->
     <section id="screen-flow" class="screen">
