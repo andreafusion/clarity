@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarity</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1 class="logo">Clarity</h1>
+      <p class="tagline">Una pregunta a la vez. Un paso a la vez.</p>
+    </header>
+
+    <!-- HOME -->
+    <section id="screen-home" class="screen active">
+      <h2>¿Qué necesitas ahora?</h2>
+      <div class="card-grid" id="modes-grid">
+        <!-- botones de modos se insertan con JS -->
+      </div>
+      <p class="hint">Tus respuestas se guardan en tu navegador (privado).</p>
+    </section>
+
+    <!-- FLOW -->
+    <section id="screen-flow" class="screen">
+      <div class="flow-top">
+        <button class="btn ghost" id="btn-back-home">← Volver</button>
+        <span class="progress" id="progress"></span>
+      </div>
+
+      <h2 class="question" id="question"></h2>
+
+      <textarea
+        id="answer"
+        class="textarea"
+        rows="6"
+        placeholder="Escribe sin perfección. Aquí no hay policía de la gramática."
+      ></textarea>
+
+      <div class="flow-actions">
+        <button class="btn ghost" id="btn-skip">Saltar</button>
+        <button class="btn primary" id="btn-next">Siguiente →</button>
+      </div>
+    </section>
+
+    <!-- RESULT -->
+    <section id="screen-result" class="screen">
+      <h2>Tu claridad, en limpio</h2>
+
+      <div class="result-block">
+        <h3>Resumen</h3>
+        <p id="result-summary"></p>
+      </div>
+
+      <div class="result-block">
+        <h3>Insight</h3>
+        <p id="result-insight"></p>
+      </div>
+
+      <div class="result-block">
+        <h3>Una acción pequeña</h3>
+        <p id="result-action"></p>
+      </div>
+
+      <div class="result-actions">
+        <button class="btn ghost" id="btn-restart">↻ Empezar de nuevo</button>
+        <button class="btn primary" id="btn-copy">Copiar resultado</button>
+      </div>
+
+      <p class="hint">Tip: copia tu resultado y pégalo en tu diario / Notion / notas.</p>
+    </section>
+  </main>
+
+  <script src="./data/modes.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
